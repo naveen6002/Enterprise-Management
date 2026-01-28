@@ -1,0 +1,293 @@
+/* ===============================
+   GLOBAL
+================================ */
+body {
+  margin: 0;
+  background: linear-gradient(
+    180deg,
+    #f6f9ff 0%,
+    #ffffff 50%,
+    #f6f9ff 100%
+  );
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+/* ===============================
+   NAVBAR
+================================ */
+.app-navbar {
+  background: #0b2a5b;
+}
+
+.app-navbar .navbar-brand {
+  color: #ffffff !important;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+/* ===============================
+   AUTH PAGE BACKGROUND
+================================ */
+.app-auth-bg {
+  min-height: 100vh;
+  background:
+    linear-gradient(
+      rgba(8, 15, 35, 0.65),
+      rgba(8, 15, 35, 0.65)
+    ),
+    url("tech.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===============================
+   CARD (GLOBAL)
+================================ */
+.app-card {
+  border: none;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 30px 70px rgba(15, 23, 42, 0.15);
+}
+
+/* Floating animation (login only safe) */
+@keyframes floatCard {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ===============================
+   TEXT HELPERS
+================================ */
+.muted {
+  color: rgba(10, 18, 40, 0.62);
+}
+
+/* ===============================
+   MEMBER TYPE TOGGLE
+================================ */
+.member-toggle {
+  display: flex;
+  background: #f1f5f9;
+  border-radius: 12px;
+  padding: 4px;
+}
+
+.member-toggle label {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+}
+
+.member-toggle input {
+  display: none;
+}
+
+.member-toggle input:checked + label {
+  background: #2563eb;
+  color: white;
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.35);
+}
+
+/* ===============================
+   LOGIN INPUTS
+================================ */
+.login-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border-radius: 10px;
+  border: 1px solid #c7d2fe;
+  transition: all 0.2s ease;
+}
+
+.login-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+  transform: scale(1.01);
+}
+
+/* ===============================
+   LOGIN BUTTON
+================================ */
+.login-btn {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(90deg, #2563eb, #1d4ed8);
+  color: white;
+  font-weight: bold;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.4);
+  transform: scale(1.02);
+}
+
+/* ===============================
+   LOADERS – COMMON
+================================ */
+.loader-wrap {
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ===============================
+   FEDEX VAN LOADER (ASSIGN CASES)
+================================ */
+.fedex-van {
+  width: 220px;
+  height: 48px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #4d148c 0%, #ff6600 100%);
+}
+
+.fedex-van::before {
+  content: "FEDEX";
+  position: absolute;
+  left: -80px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: 2px;
+  animation: van-move 1.6s linear infinite;
+}
+
+@keyframes van-move {
+  0% { transform: translate(-10px, -50%); }
+  100% { transform: translate(320px, -50%); }
+}
+
+/* ===============================
+   MONEY CHIP
+================================ */
+.money-chip {
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  background: radial-gradient(
+    circle at 30% 30%,
+    #fff7cc 0%,
+    #ffd35c 40%,
+    #c58f1c 100%
+  );
+  box-shadow: 0 10px 18px rgba(197, 143, 28, 0.28);
+  position: relative;
+  animation: float 1.3s ease-in-out infinite;
+}
+
+.money-chip::after {
+  content: "$";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  color: rgba(70, 45, 0, 0.9);
+  font-size: 22px;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* ===============================
+   PIGGY BANK LOADER (DCA SIDE)
+================================ */
+.piggy {
+  width: 160px;
+  height: 110px;
+  border-radius: 60px;
+  background: linear-gradient(180deg, #ff77a9 0%, #ff4b87 100%);
+  position: relative;
+  box-shadow: 0 14px 26px rgba(255, 75, 135, 0.25);
+}
+
+.piggy::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+  position: absolute;
+  left: 26px;
+  top: 36px;
+}
+
+.piggy::after {
+  content: "";
+  width: 46px;
+  height: 36px;
+  border-radius: 0 26px 26px 0;
+  background: linear-gradient(180deg, #ff77a9 0%, #ff4b87 100%);
+  position: absolute;
+  right: -18px;
+  top: 38px;
+  box-shadow: 0 10px 18px rgba(255, 75, 135, 0.15);
+}
+
+/* ===============================
+   COIN DROP
+================================ */
+.coin {
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: radial-gradient(
+    circle at 30% 30%,
+    #fff7cc 0%,
+    #ffd35c 40%,
+    #c58f1c 100%
+  );
+  position: relative;
+  animation: coin-drop 1.2s ease-in-out infinite;
+}
+
+.coin::after {
+  content: "₹";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+  color: rgba(70, 45, 0, 0.9);
+}
+
+@keyframes coin-drop {
+  0% {
+    transform: translateY(-40px);
+    opacity: 0.2;
+  }
+  35% { opacity: 1; }
+  70% {
+    transform: translateY(10px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+}
